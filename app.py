@@ -6,7 +6,16 @@ import streamlit as st
 
 load_dotenv()
 
-st.title("Chapter 6 【提出課題】LLM機能を搭載したWebアプリを開発しよう")
+st.title("子育てサポートAI")
+
+st.markdown("""
+このアプリでは、AIを活用して、**育児のストレス対策**や**子どもの栄養**に関する質問に対し、専門家になりきったAIがアドバイスを提供します。
+
+### 使い方
+1. 上のラジオボタンから「栄養アドバイザー」または「育児アドバイザー」を選択
+2. テキスト入力欄に相談内容を入力
+3. 「実行」ボタンを押すと、選択した専門家としての回答が生成されます
+""")
 
 stress_template = """
 あなたは親の育児ストレスを軽減するための専門家です。
@@ -60,7 +69,6 @@ for p in prompt_infos:
     destinations.append(f"{p['name']}: {p['description']}")
 
 
-
 selected_item = st.radio(
 
     "専門家を選択してください。",
@@ -89,4 +97,3 @@ if st.button("実行"):
 
             else:
                 st.error("専門家を選択してください。")
-
